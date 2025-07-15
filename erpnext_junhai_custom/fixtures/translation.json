@@ -1,0 +1,80 @@
+[
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-04 14:40:57.707962",
+  "name": "a742s92o20",
+  "source_text": "Item Group Code",
+  "translated_text": "物料组代码"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-04 15:39:13.511294",
+  "name": "8hhmkpsgpn",
+  "source_text": "Item Specification",
+  "translated_text": "规格型号"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-04 15:32:30.267026",
+  "name": "8sej42lpg7",
+  "source_text": "Brand Product Number",
+  "translated_text": "品牌货号"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-05 22:33:22.130822",
+  "name": "b7lvgkbadj",
+  "source_text": "Comments",
+  "translated_text": "评论"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-06 11:11:36.952383",
+  "name": "89mjgi3l6j",
+  "source_text": "Give Feedback",
+  "translated_text": "提供反馈"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-08 15:57:05.399465",
+  "name": "69ed0ue4le",
+  "source_text": "Appointment",
+  "translated_text": "预约"
+ }
+]

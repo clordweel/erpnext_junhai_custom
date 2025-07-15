@@ -242,3 +242,35 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {
+        "dt": "Translation"
+    },
+    {
+        "dt": "Server Script",
+        "filters": [
+            ["name", "in", [
+                "根据物料组生成物料编码"
+            ]
+        ]]
+    },
+    {
+        "dt": "Print Format",
+        "filters": [
+            ["name", "in", [
+                "库存 - 出料单"
+            ]
+        ]]
+    },
+    {
+        "dt": "Custom Field",
+        "filters": [
+            ["name", "in", [
+                "Stock Entry Detail-custom_item_specification",
+                "Item-custom_item_specification",
+                "Item-custom_brand_product_number",
+                "Item Group-custom_item_group_code"
+            ]]
+        ]
+    }
+]
