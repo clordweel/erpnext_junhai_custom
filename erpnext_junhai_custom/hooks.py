@@ -244,7 +244,25 @@ app_license = "mit"
 
 fixtures = [
     {
+        "dt": "Company"
+    },
+    {
+        "dt": "Account"
+    },
+    {
+        "dt": "Warehouse"
+    },
+    {
         "dt": "Translation"
+    },
+    {
+        "dt": "System Settings"
+    },
+    {
+        "dt": "Stock Settings"
+    },
+    {
+        "dt": "Manufacturing Settings"
     },
     {
         "dt": "Server Script",

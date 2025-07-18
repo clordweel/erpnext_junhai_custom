@@ -36,7 +36,7 @@
   "modified": "2025-07-04 15:33:31.796137",
   "module": null,
   "name": "Item-custom_item_specification",
-  "no_copy": 1,
+  "no_copy": 0,
   "non_negative": 0,
   "options": null,
   "permlevel": 0,
