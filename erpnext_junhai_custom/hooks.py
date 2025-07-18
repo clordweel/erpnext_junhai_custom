@@ -255,15 +255,15 @@ fixtures = [
     {
         "dt": "Translation"
     },
-    {
-        "dt": "System Settings"
-    },
-    {
-        "dt": "Stock Settings"
-    },
-    {
-        "dt": "Manufacturing Settings"
-    },
+    # {
+    #     "dt": "System Settings"
+    # },
+    # {
+    #     "dt": "Stock Settings"
+    # },
+    # {
+    #     "dt": "Manufacturing Settings"
+    # },
     {
         "dt": "Server Script",
         "filters": [
