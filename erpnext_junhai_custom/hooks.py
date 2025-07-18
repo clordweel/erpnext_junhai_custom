@@ -243,15 +243,15 @@ app_license = "mit"
 # }
 
 fixtures = [
-    {
-        "dt": "Company"
-    },
-    {
-        "dt": "Account"
-    },
-    {
-        "dt": "Warehouse"
-    },
+    # {
+    #     "dt": "Company"
+    # },
+    # {
+    #     "dt": "Account"
+    # },
+    # {
+    #     "dt": "Warehouse"
+    # },
     {
         "dt": "Translation"
     },
