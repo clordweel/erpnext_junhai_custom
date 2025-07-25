@@ -76,5 +76,18 @@
   "name": "69ed0ue4le",
   "source_text": "Appointment",
   "translated_text": "预约"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "zh",
+  "modified": "2025-07-21 09:25:05.409343",
+  "name": "pbe3a7uvnv",
+  "source_text": "Inter Company Sales Order",
+  "translated_text": "公司间销售订单"
  }
 ]

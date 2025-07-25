@@ -273,10 +273,26 @@ fixtures = [
         ]]
     },
     {
+        "dt": "Print Style",
+        "filters": [
+            ["name", "in", [
+                "简单"
+            ]
+        ]]
+    },
+    {
         "dt": "Print Format",
         "filters": [
             ["name", "in", [
-                "库存 - 出料单"
+                "出库领料单 - 标准",
+            ]
+        ]]
+    },
+    {
+        "dt": "Letter Head",
+        "filters": [
+            ["name", "in", [
+                "徐马公司内部表头 - 标准"
             ]
         ]]
     },

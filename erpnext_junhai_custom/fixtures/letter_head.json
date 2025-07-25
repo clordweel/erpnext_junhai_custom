@@ -1,0 +1,25 @@
+[
+ {
+  "align": "Left",
+  "content": "\t<header style=\"display: block;border-bottom: 2px solid black;overflow: hidden;\">\n\t    <span style=\"height: 52px;width: 52px;display: block;float: left;\">\n\t        <img src=\"/files/xuma_logo_type_c_dark.jpeg\" style=\"height: inherit; width: auto;\">\n        </span>\n        <span style=\"font-size: 1.25rem;font-weight: bold;float: right;margin-top: 1em;\">江苏徐马环保科技 / 内部报表</span>\n    </header>",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": null,
+  "footer_align": "Left",
+  "footer_image": null,
+  "footer_image_height": 0.0,
+  "footer_image_width": 0.0,
+  "footer_script": null,
+  "footer_source": "Image",
+  "header_script": null,
+  "image": null,
+  "image_height": 0.0,
+  "image_width": 0.0,
+  "is_default": 1,
+  "letter_head_name": "徐马公司内部表头 - 标准",
+  "modified": "2025-07-25 16:07:41.511154",
+  "name": "徐马公司内部表头 - 标准",
+  "source": "HTML"
+ }
+]
