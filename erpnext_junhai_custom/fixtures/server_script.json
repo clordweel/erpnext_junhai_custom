@@ -17,5 +17,24 @@
   "reference_doctype": "Item",
   "script": "# 定义我们要查找和替换的“暗号”或占位符\r\nplaceholder = \".{__item_group_code__}.\"\r\n\r\n# 检查当前物料的命名模板里是否包含了我们定义的“暗号”\r\nif doc.naming_series and placeholder in doc.naming_series:\r\n    \r\n    # 默认替换成空字符串，以防物料组或代码没填\r\n    group_code_str = \"\"\r\n\r\n    # 检查用户是否选了物料组\r\n    if doc.item_group:\r\n        # 从数据库里获取物料组对应的代码\r\n        fetched_code = frappe.db.get_value(\"Item Group\", doc.item_group, \"custom_item_group_code\")\r\n        \r\n        # 如果成功拿到了代码，就把它存起来\r\n        if fetched_code:\r\n            group_code_str = str(fetched_code)\r\n\r\n    # 核心步骤：用拿到的代码替换掉模板里的“暗号”\r\n    # 比如，把 \".{item_group_code}.-.#####\" 变成 \"10.-.#####\"\r\n    new_naming_series = doc.naming_series.replace(placeholder, group_code_str)\r\n\r\n    # 把修改后的新模板再写回给系统\r\n    # 这样，系统接下来就会用 \"10.-.#####\" 这个模板去生成最终的流水号\r\n    doc.naming_series = new_naming_series",
   "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": "create_contract_from_so",
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Insert",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-08-01 22:14:10.851772",
+  "module": null,
+  "name": "从销售订单创建客户合同",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": null,
+  "script": "# Script Type: API\r\n# API Method: create_contract_from_so (方法名保持不变)\r\n\r\n# Get arguments from the request\r\nso_name = frappe.form_dict.get('so_name')\r\n\r\nif not so_name:\r\n    frappe.throw(\"Missing Sales Order Name\")\r\n\r\nso_doc = frappe.get_doc(\"Sales Order\", so_name)\r\n\r\nif so_doc.docstatus != 1:\r\n    frappe.throw(f\"Sales Order {so_name} is not submitted.\")\r\n\r\n# (可选但推荐) 仍然检查是否已存在合同，避免用户重复操作\r\nexisting_contract = frappe.db.exists(\"Contract\", {\r\n    \"reference_doctype\": \"Sales Order\",\r\n    \"reference_name\": so_name,\r\n    \"docstatus\": [\"!=\", 2]\r\n})\r\nif existing_contract:\r\n    frappe.throw(f\"This Sales Order is already linked to Contract: <a href='/app/contract/{existing_contract}'>{existing_contract}</a>. You can open it directly.\")\r\n\r\n# --- 主要变更点 ---\r\n# 1. 创建一个 Python 字典来存放预填数据，而不是一个文档对象\r\ncontract_data = {\r\n    \"doctype\": \"Contract\",  # 必须指定 doctype\r\n    \"party_name\": so_doc.customer,\r\n    # \"company\": so_doc.company,\r\n    # \"contract_title\": f\"Contract based on {so_name}\",\r\n    \"document_type\": \"Sales Order\",\r\n    \"document_name\": so_doc.name,\r\n    # \"start_date\": frappe.utils.nowdate(),\r\n    # \"end_date\": frappe.utils.add_to_date(frappe.utils.nowdate(), years=1, days=-1)\r\n    # 你可以在这里添加更多需要从销售订单带过来的字段\r\n    # \"currency\": so_doc.currency,\r\n}\r\n\r\n# 2. 将整个数据字典作为消息返回给前端\r\nfrappe.response['message'] = contract_data",
+  "script_type": "API"
  }
 ]

@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Sales Order",
+  "enabled": 1,
+  "modified": "2025-08-01 22:10:34.301811",
+  "module": "",
+  "name": "从销售订单创建客户合同",
+  "script": "frappe.ui.form.on('Sales Order', {\r\n    refresh: function(frm) {\r\n        // 只在已提交 (Submitted) 且未关闭 (Not Closed) 的销售订单上显示按钮\r\n        if (frm.doc.docstatus === 1 && frm.doc.status !== 'Closed') {\r\n            \r\n            // 检查是否已有关联合同，避免重复创建\r\n            // (此为优化项，需要后端支持一个检查函数)\r\n            \r\n            frm.add_custom_button(__('创建合同'), function() {\r\n                // 点击按钮时触发\r\n                frappe.show_alert({\r\n                    message: __('正在根据此销售订单创建合同...'),\r\n                    indicator: 'blue'\r\n                }, 5);\r\n\r\n                // 调用后端的 Python 方法\r\n                // return\r\n                frappe.call({\r\n                    method: 'create_contract_from_so', // 格式: app_name.path.to.function\r\n                    args: {\r\n                        'so_name': frm.doc.name // 传递当前销售订单的名称\r\n                    },\r\n                    callback: function(response) {\r\n                        if (response.message) {\r\n                            // 成功后的回调\r\n                             if (response.message) {\r\n                                 console.log(response.message)\r\n                                \r\n                                // 使用 frappe.new_doc() 打开一个新的、预填好数据的表单\r\n                                // 参数1: 要创建的 DocType 名称\r\n                                // 参数2: 包含字段和值的 JSON 对象\r\n                                frappe.new_doc('Contract', response.message);\r\n                            }\r\n                        }\r\n                    },\r\n                    error: function(err) {\r\n                        // 错误处理\r\n                        frappe.msgprint({\r\n                            title: __('错误'),\r\n                            message: __('创建合同失败: ' + err.message),\r\n                            indicator: 'red'\r\n                        });\r\n                    }\r\n                });\r\n            }); // 让按钮更显眼\r\n        }\r\n    }\r\n});",
+  "view": "Form"
+ }
+]

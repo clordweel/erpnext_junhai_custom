@@ -268,7 +268,16 @@ fixtures = [
         "dt": "Server Script",
         "filters": [
             ["name", "in", [
-                "根据物料组生成物料编码"
+                "根据物料组生成物料编码",
+                "从销售订单创建客户合同"
+            ]
+        ]]
+    },
+    {
+        "dt": "Client Script",
+        "filters": [
+            ["name", "in", [
+                "从销售订单创建客户合同"
             ]
         ]]
     },
